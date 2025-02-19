@@ -1,1 +1,32 @@
+%Anna Noll 
+%GrayScale Stimulus Code 
+%This code creates white screens with various grayscale values in order to
+%calibrate the grayscale and resulting intensity 
+%not tested yet! 
 
+function grayscaleStim
+Screen('Preference','SkipSyncTests',1); 
+
+%Define Grayscale Value Array
+nValues=15;
+grayValues=round(linspace(0,255,nValues));
+
+%Define Screen being used and any other setup parameters
+ScreenValue=2; %define which screen to be used
+[Xpixels, Ypixels] = Screen('WindowSize', WindowIndex); %get screensize
+ScreenSizeRect = [0 0 Xpixels Ypixels]; % Define destination rectangle to fill the screen
+[WindowIndex,WindowRect] = Screen('OpenWindow', ScreenValue);
+%start with black screen
+BlackScreen=Screen('MakeTexture',WindowIndex,Black);
+Screen('DrawTexture',WindowIndex,BlackScreen);
+Screen('Flip',WindowIndex);
+KbWait;
+
+%start projection
+for i=1:length(grayValues)
+    [window,WindowRect]=Screen('OpenWindow','ScreenValue',[grayValues(i) grayValues(i) grayValues(i)])
+    Screen('Flip', window);
+    KbWait; 
+end 
+
+end 
