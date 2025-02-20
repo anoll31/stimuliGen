@@ -2,7 +2,7 @@
 %GrayScale Stimulus Code 
 %This code creates white screens with various grayscale values in order to
 %calibrate the grayscale and resulting intensity 
-%not tested yet! 
+%tested on personal device 
 
  function grayscaleStim
 %% Suppress Screen Warning
