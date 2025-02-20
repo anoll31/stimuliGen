@@ -4,7 +4,7 @@
 %calibrate the grayscale and resulting intensity 
 %not tested yet! 
 
-% function grayscaleStim
+ function grayscaleStim
 %% Suppress Screen Warning
 Screen('Preference', 'SkipSyncTests', 0);  
 Screen('Preference','VisualDebugLevel',1);  
@@ -15,15 +15,15 @@ ScreenValue=2;
 
     
 
-%Define Grayscale Value Array
+%% Define Grayscale Value Array
 nValues=15;
 grayValues=round(linspace(0,255,nValues));
 
-
+%% Display White Intensity Screens
 for i=1:length(grayValues)
 Screen('FillRect',WindowIndex,[grayValues(i) grayValues(i) grayValues(i)]);
 Screen('Flip', WindowIndex);
      KbWait([], 2); 
 end 
 Screen('CloseAll')
-% end 
+end  
