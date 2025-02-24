@@ -14,6 +14,10 @@ lights.On_s = 10;
 lights.Off_s = 0.2;
 
 lights.start_with_defaults()
+
+tic
+while toc < 1.003 % this is the delay we measured for teensy light source
+end
  
 % call function for grayscale calibration
 
